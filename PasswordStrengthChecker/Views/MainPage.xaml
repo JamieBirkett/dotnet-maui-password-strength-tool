@@ -1,0 +1,142 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             xmlns:viewmodel="clr-namespace:PasswordStrengthChecker.ViewModel"
+             x:DataType="viewmodel:MainViewModel"
+             x:Class="PasswordStrengthChecker.MainPage"
+             Background="#E5E5E5">
+
+    <ContentPage.Behaviors>
+        <toolkit:StatusBarBehavior StatusBarColor="#29BCCF" StatusBarStyle="LightContent" />
+    </ContentPage.Behaviors>
+
+  <ScrollView>
+        <VerticalStackLayout
+            Spacing="15"
+            Padding="30,25,30,30"
+            VerticalOptions="Start">
+                     
+            <!--Password Entry-->
+            <Frame BorderColor="#29BCCF"
+                    CornerRadius="10">
+
+                <StackLayout>
+                    
+                    <Entry x:Name="passwordEntry"
+                           Placeholder="Password"
+                           Text="{Binding Password}"
+                           FontSize="20"
+                           ClearButtonVisibility="WhileEditing"
+                           HorizontalTextAlignment="Center"
+                           IsPassword="True"
+                           Margin="0,0,0,10"
+                           Keyboard="Default"
+                           MaxLength="100"
+                           /> 
+
+                    <Label Text="{Binding MainModel.BruteForceHeader}"
+                           HorizontalOptions="Center"
+                           HorizontalTextAlignment="Center"/>
+                    <Label x:Name="lblTime"
+                            Text="{Binding MainModel.BruteForceTimeFormatted}" FontSize="Large"
+                           TextColor="{Binding MainModel.BruteForeTimeColour}"
+                           HorizontalOptions="Center"
+                           />
+                    <Label Text="{Binding MainModel.BruteForceFooter}"
+                           HorizontalOptions="Center"/>
+
+                </StackLayout>
+
+            </Frame>
+
+            <!--Password Suggestions-->
+            <Frame BorderColor="#29BCCF"
+                    CornerRadius="10">
+                   
+                   
+                <Grid ColumnDefinitions="30,*,30,*,10"
+                      RowDefinitions="Auto,Auto,Auto,Auto,Auto">
+
+                    
+                    <Label Text="Suggestions:"
+                           Grid.Row="0"
+                           Grid.ColumnSpan="2"
+                           FontAttributes="Bold"
+                           Padding="12.5,0,12.5,12.5"/>
+
+                    <Label Text="Uppecase" Grid.Row="1" Grid.Column="1"
+                           HorizontalOptions="Start"/>
+                    <Image Source="{Binding MainModel.UppercaseValid}"
+                           x:Name="imgTest"
+                           Grid.Row="1" Grid.Column="0"
+                           HorizontalOptions="Start"/>
+                   
+                    <Label Text="Lowercase" Grid.Row="2" Grid.Column="1"
+                           HorizontalOptions="Start"/>
+                    <Image Source="{Binding MainModel.LowercaseValid}"
+                           Grid.Row="2" Grid.Column="0"
+                           HorizontalOptions="Start"/>
+
+                    <Label Text="Number" Grid.Row="1" Grid.Column="3"
+                           HorizontalOptions="Start"/>
+                    <Image Source="{Binding MainModel.NumberValid}"
+                           Grid.Row="1" Grid.Column="2"
+                           HorizontalOptions="Start"/>
+
+                    <Label Text="Special" Grid.Row="2" Grid.Column="3"
+                           HorizontalOptions="Start"/>
+                    <Image Source="{Binding MainModel.SpecialValid}"
+                           Grid.Row="2" Grid.Column="2"
+                           HorizontalOptions="Start"/>
+
+                    <Label Text="12+ characters" Grid.Row="3" Grid.Column="1"
+                           HorizontalOptions="Start"/>
+                    <Image Source="{Binding MainModel.LengthValid}"
+                           Grid.Row="3" Grid.Column="0"
+                           HorizontalOptions="Start"/>           
+
+                </Grid>
+
+            </Frame>
+
+            <!--Entropy Score-->
+            <Frame BorderColor="#29BCCF"
+                    CornerRadius="10"
+                    Padding="15">
+
+                <Grid ColumnDefinitions="80,*,*,70">
+
+                    <Label Text="Entropy Score:"
+                           Padding="12.5,12.5,12.5,12.5"
+                           FontAttributes="Bold"
+                           HorizontalOptions="Center"
+                           VerticalOptions="Center"
+                           Grid.Column="0"
+                           />
+
+                    <BoxView Color="#E5E5E5"
+                        WidthRequest="2"
+                        HeightRequest="30"
+                        VerticalOptions="Fill"
+                        Grid.Column="0"
+                        Grid.ColumnSpan="4"/>
+
+                    <Label Text="{Binding MainModel.Entropy}"
+                           FontSize="16"
+                           HorizontalOptions="End"
+                           VerticalOptions="Center"
+                           Grid.Column="2"/>
+                    
+                </Grid>
+
+            </Frame>
+
+            <Border >
+                
+            </Border>
+      
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
+
