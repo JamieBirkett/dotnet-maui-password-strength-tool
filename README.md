@@ -15,5 +15,5 @@ The Password Strength Check tool calculates Password Entropy and estimates (roug
 
 ## Preview
 
-<img src="Previews/AndriodDemo.gif width="250" height="550">
+<img src="Previews/AndroidDemo.gif width="250" height="550">
 
