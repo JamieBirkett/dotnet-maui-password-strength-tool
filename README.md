@@ -14,6 +14,14 @@ The Password Strength Check tool calculates Password Entropy and estimates (roug
 - Password Validation
 
 ## Preview
+<br>
 
-<img src="Previews/AndroidDemo.gif" alt="Android Demo" width="250">
+| Andriod  |  iPhone |
+|---|---|
+|  <img src="Previews/iPhoneDemo.gif" alt="Android Demo" width="250">   |  <img src="Previews/AndroidDemo.gif" alt="iPhone Demo" width="250"> |
+
+
+| Mac using native Dark Mode |
+|--|
+|<img src="Previews/MacDemo_DarkMode.gif" alt="Mac Demo">|
 
